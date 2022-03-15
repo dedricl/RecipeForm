@@ -1,0 +1,50 @@
+﻿@model IEnumerable<RecipeForm.Models.RecipeModel>
+
+<h1 class="mb-5 text-center text-info">Recipe</h1>
+
+<table class="table table-dark">
+    <thead>
+        <tr>
+            <th scope="col">Recipe Name</th>
+            <th scope="col">Meal Type</th>
+            <th scope="col">Main Ingredient</th>
+            <th scope="col">Prep Time</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            if (item.RecipeId == 1)
+            {
+                <tr>
+                    <td><a asp-action="ChickenNoodleDetails">@item.RecipeName</a></td>
+                    <td>@item.MealType</td>
+                    <td>@item.Ingredient</td>
+                    <td>@item.PrepTime </td>
+                </tr>
+
+            }
+            if (item.RecipeId == 2)
+            {
+                
+                
+                    <tr>
+                        <td><a asp-action="ApplePieDetails">@item.RecipeName</a></td>
+                        <td>@item.MealType</td>
+                        <td>@item.Ingredient</td>
+                        <td>@item.PrepTime </td>
+                    </tr>
+
+                
+            }
+
+        }
+
+    </tbody>
+</table>
+
+<div>
+    <a asp-controller="Recipe" asp-action="Create" class="btn btn-primary">Create</a>
+    <a asp-action="Update" class="btn btn-dark">Update</a>
+    <a asp-action="Delete" class="btn btn-danger">Delete</a>
+</div>
