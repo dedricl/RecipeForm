@@ -39,6 +39,12 @@ namespace RecipeForm.Controllers
 
         }
 
+        public ActionResult ComingSoonDetails()
+        {
+            return View();
+
+        }
+
         // GET: RecipeController/Create
         public ActionResult Create()
         {
@@ -102,17 +108,28 @@ namespace RecipeForm.Controllers
         // GET: RecipeController/Delete/5
         public ActionResult Delete(int id)
         {
-            return View();
+            var obj = _db.Recipes.Find(id);
+            try
+            {
+                return View(obj);
+            }
+            catch
+            {
+
+                return NotFound();
+            }
         }
 
         // POST: RecipeController/Delete/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Delete(int id, IFormCollection collection)
+        public ActionResult Delete(RecipeModel obj)
         {
             try
             {
-                return RedirectToAction(nameof(Index));
+                _db.Recipes.Remove(obj);
+                _db.SaveChanges();
+                return RedirectToAction("Index");
             }
             catch
             {
