@@ -64,19 +64,34 @@ namespace RecipeForm.Controllers
         }
 
         // GET: RecipeController/Edit/5
-        public ActionResult Edit(int id)
+        public ActionResult Update(int id)
         {
-            return View();
+            var obj = _db.Recipes.Find(id);
+            try
+            {
+                return View(obj);
+            }
+            catch 
+            {
+
+                return NotFound();
+            }
+           
+            
         }
 
         // POST: RecipeController/Edit/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit(int id, IFormCollection collection)
+        public ActionResult UpdatePost(RecipeModel obj)
         {
+           
             try
             {
-                return RedirectToAction(nameof(Index));
+                _db.Recipes.Update(obj);
+                _db.SaveChanges();
+                return RedirectToAction("Index");
+
             }
             catch
             {
