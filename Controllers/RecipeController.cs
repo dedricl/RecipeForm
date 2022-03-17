@@ -57,16 +57,18 @@ namespace RecipeForm.Controllers
         public ActionResult Create(RecipeModel obj)
         {
             
-            try
-            {
-                _db.Recipes.Add(obj);
-                _db.SaveChanges();
-                return RedirectToAction("Index");
-            }
-            catch
-            {
-                return View();
-            }
+            
+            
+                if(ModelState.IsValid)
+                {
+                    _db.Recipes.Add(obj);
+                    _db.SaveChanges();
+                    return RedirectToAction("Index");
+                }
+                      
+            
+                return View(obj);
+            
         }
 
         // GET: RecipeController/Edit/5
