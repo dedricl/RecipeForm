@@ -1,18 +1,22 @@
-﻿
+﻿@model RecipeForm.Models.RecipeModel
 
+
+@{
+    ViewData["Title"] = "PieDetails";
+}
 
 
 <h1 class="text-center">Recipes</h1>
 
-<h2>Apple Pie</h2>
-<h2>Meal Type: Desert</h2>
+<h2>@Model.RecipeName</h2>
+<h2>Meal Type: @Model.MealType</h2>
 
 
 
 <h3>Ingredients</h3>
 <ul>
     <li>
-        6 cups thinly sliced, peeled apples (6 medium)
+        6 cups thinly sliced, peeled @Model.Ingredient (6 medium)
     </li>
     <li>
         3/4 cup sugar
@@ -45,16 +49,16 @@
     <li><p>In large bowl, gently mix filling ingredients; spoon into crust-lined pie plate. Top with second crust. Wrap excess top crust under bottom crust edge, pressing edges together to seal; flute. Cut slits or shapes in several places in top crust.</p></li>
     <li>
         <p>
-            Bake 40 to 45 minutes or until apples are tender and crust is golden brown. Cover edge of crust with 2- to 3-inch wide strips of foil after first 15 to 20 minutes of baking to prevent excessive browning. Cool on cooling rack at least 2 hours before serving.
+            Bake 40 to 45 minutes or until @Model.Ingredient are tender and crust is golden brown. Cover edge of crust with 2- to 3-inch wide strips of foil after first 15 to 20 minutes of baking to prevent excessive browning. Cool on cooling rack at least 2 hours before serving.
         </p>
     </li>
-   
+
 </ol>
 
 
 
 
-<p>Time Completed: 2 hours</p>
+<p>Time Completed: @Model.PrepTime hours</p>
 
 <div>
     <a asp-action="Index" class="btn btn-warning">Back to List</a>

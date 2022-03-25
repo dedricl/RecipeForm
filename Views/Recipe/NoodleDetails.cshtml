@@ -1,17 +1,21 @@
-﻿
+﻿@model RecipeForm.Models.RecipeModel
+
+@{
+    ViewData["Title"] = "NoodleDetails";
+}
 
 
 <h1 class="text-center">Recipes</h1>
 
-<h2>Chicken Noodle</h2>
-<h2>Meal Type: Lunch</h2>
+<h2>@Model.RecipeName</h2>
+<h2>Meal Type: @Model.MealType</h2>
 
 
 
-<h3>Ingredients</h3>
+<h3>Ingredients: </h3>
 <ul>
-    <li>4 Chicken thighs, skins removed</li>
-    <li>8 Cups chicken broth</li>
+    <li>4 @Model.Ingredient</li>
+    <li>8 Cups  @Model.Ingredient broth</li>
     <li>6 cups water</li>
     <li>olive oil</li>
     <li>onion finley chopped</li>
@@ -25,10 +29,10 @@
 <h3>Instructions</h3>
 
 <ol>
-    <li><p>In a large pot combine water,broth and salt. Bring to boil add chicken</p></li>
+    <li><p>In a large pot combine water,broth and salt. Bring to boil add  @Model.Ingredient</p></li>
     <li><p>In a large skillet heat oil and sautee onion and celery until soft</p></li>
     <li><p>Add pasta and carrots to pot cook for 15 min</p></li>
-    <li><p>Use hand to shredded chicken</p></li>
+    <li><p>Use hand to shredded protein</p></li>
     <li><p>Contuning to add salt to taste</p></li>
     <li><p>Remove from Heat and Enjoy!</p></li>
 </ol>
@@ -36,7 +40,7 @@
 
 
 
-<p>Time Complete: 5 hours</p>
+<p>Time Complete: @Model.PrepTime</p>
 
 <div>
     <a asp-action="Index" class="btn btn-warning">Back to List</a>

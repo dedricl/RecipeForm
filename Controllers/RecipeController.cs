@@ -25,25 +25,41 @@ namespace RecipeForm.Controllers
             return View(objList);
         }
 
-        // GET: Chicken Noodle recipe
-        public ActionResult ChickenNoodleDetails()
+        // GET: Noodle recipe
+        public ActionResult NoodleDetails(int id)
         {
-            return View();
+            var obj = _db.Recipes.Find(id);
+            try
+            {
+                return View(obj);
+            }
+            catch
+            {
+
+                return NotFound();
+            }
+
+        }
+
+        //GET: Pie recipe
+        public ActionResult PieDetails(int id)
+        {
             
+            var obj = _db.Recipes.Find(id);
+            try
+            {
+                return View(obj);
+            }
+            catch
+            {
+
+                return NotFound();
+            }
+           
+
         }
 
-        //GET: Apple pie recipe
-        public ActionResult ApplePieDetails()
-        {
-            return View();
-
-        }
-
-        public ActionResult ComingSoonDetails()
-        {
-            return View();
-
-        }
+       
 
         // GET: RecipeController/Create
         public ActionResult Create()
@@ -137,6 +153,12 @@ namespace RecipeForm.Controllers
             {
                 return View();
             }
+        }
+        // GET: Noodle recipe
+        public ActionResult ComingSoonDetails()
+        {
+            return View();
+
         }
     }
 }

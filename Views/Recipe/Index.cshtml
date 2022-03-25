@@ -16,10 +16,10 @@
 
         @foreach (var item in Model)
         {
-            if (item.RecipeId > 0 && item.RecipeName == "Apple Pie")
+            if (item.RecipeId > 0 && item.RecipeName.Contains("Pie"))
             {
         <tr>
-            <td><a asp-action="ApplePieDetails">@item.RecipeName</a></td>
+            <td><a asp-action="PieDetails" asp-route-Id="@item.RecipeId">@item.RecipeName</a></td>
             <td>@item.MealType</td>
             <td>@item.Ingredient</td>
             <td>@item.PrepTime </td>
@@ -33,10 +33,10 @@
 
 
             }
-            else if (item.RecipeId > 0 && item.RecipeName == "Chicken Noodle")
+            else if (item.RecipeId > 0 && item.RecipeName.Contains("Noodle"))
             {
                 <tr>
-                    <td><a asp-action="ChickenNoodleDetails">@item.RecipeName</a></td>
+                    <td><a asp-action="NoodleDetails" asp-route-Id="@item.RecipeId">@item.RecipeName</a></td>
                     <td>@item.MealType</td>
                     <td>@item.Ingredient</td>
                     <td>@item.PrepTime </td>
